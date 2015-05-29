@@ -4,19 +4,153 @@
     <meta charset="utf-8" />
     <title>Basic JSON Editor Example</title>
     <script src="../dist/jsoneditor.js"></script>
+
+
   </head>
   <body>
-    <h1>Basic JSON Editor Example</h1>
-    
+    <h1>Basic JSON Editor</h1>    
     <div id='editor_holder'></div>
-    <button id='submit'>Submit (console.log)</button>
+    
+    <button id='submit'>Criar JSON out (console.log)</button>
     
     <script>
+
+var sections = [
+  {
+    "cod_template":1,
+    "content":{
+      "slider": [
+        {
+            "legend": "Getnet.",
+            "legendStrong": "O futuro em suas mãos.",
+            "img": "assets/img/slides/transacao_rapida_getnet.jpg",
+            "button": "Saiba mais",
+            "url_button": "/solicitacoes"
+        },
+        {
+            "legend": "",
+            "legendStrong": "Tenha na sua mão as melhores soluções para o seu negócio.",
+            "img": "assets/img/slides/ec_feliz_getnet.jpg",
+            "button": "Saiba mais"
+            "url_button": "/solicitacoes"
+        },
+        {
+            "legend": "Getnet.",
+            "legendStrong": "Entregamos facilidade para quem vende e para quem compra.",
+            "img": "assets/img/slides/cliente_feliz_getnet.jpg",
+            "button": "Saiba mais"
+            "url_button": "/solicitacoes"
+        }
+      ],     
+      "hireTitle": "Peça já a Getnet \n para o seu negócio.",
+      "name": "Nome",
+      "email": "E-mail",
+      "send": "Avançar",
+      "contactTitle": "Se preferir, fale com a gente:",
+      "capital": "Capitais e Regiões Metropolitanas",
+      "other": "Demais \n Localidades",
+      "days": "Atendimento 24 horas",
+    }
+  },
+  {
+    "cod_template":2,
+    "content":{
+      "solutionsTitle": "Conheça as Soluções \n Getnet para o seu \n negócio.",
+      "cta": "Conheça já",
+      "business1": "Bares e restaurantes",
+      "business2": "Postos de combustíveis",
+      "business3": "Supermercados",
+      "business4": "Drogarias",
+      "business5": "Hotéis",
+      "business6": "Outros \n negócios",
+    }
+  }
+
+
+];
+
+
+
+
+var dados = {
+    "slider": [
+        {
+            "legend": "Getnet.",
+            "legendStrong": "O futuro em suas mãos.",
+            "img": "assets/img/slides/transacao_rapida_getnet.jpg",
+            "button": "Saiba mais"
+        },
+        {
+            "legend": "",
+            "legendStrong": "Tenha na sua mão as melhores soluções para o seu negócio.",
+            "img": "assets/img/slides/ec_feliz_getnet.jpg",
+            "button": "Saiba mais"
+        },
+        {
+            "legend": "Getnet.",
+            "legendStrong": "Entregamos facilidade para quem vende e para quem compra.",
+            "img": "assets/img/slides/cliente_feliz_getnet.jpg",
+            "button": "Saiba mais"
+        }
+    ],
+    "hireTitle": "Peça já a Getnet \n para o seu negócio.",
+    "name": "Nome",
+    "email": "E-mail",
+    "send": "Avançar",
+    "contactTitle": "Se preferir, fale com a gente:",
+    "capital": "Capitais e Regiões Metropolitanas",
+    "other": "Demais \n Localidades",
+    "days": "Atendimento 24 horas",
+
+
+
+    "solutionsTitle": "Conheça as Soluções \n Getnet para o seu \n negócio.",
+    "cta": "Conheça já",
+    "business1": "Bares e restaurantes",
+    "business2": "Postos de combustíveis",
+    "business3": "Supermercados",
+    "business4": "Drogarias",
+    "business5": "Hotéis",
+    "business6": "Outros \n negócios",
+
+
+    "raiseTitle": "Aumente seus ganhos",
+    "raiseSubtitle": "Soluções que ajudam seu negócio prosperar.",
+    "solution1": "Recebimento com cartões",
+    "solution2": "Recargas",
+    "solution3": "Correspondente bancário",
+    "solution4": "Bilhetagem",
+    "solutionCta": "Saiba mais sobre as soluções",
+    "advanceTitle1": "Antecipe suas vendas",
+    "advanceTitle2": "Antecipe suas vendas e fique no controle do seu fluxo de caixa.",
+    "advanceCta": "Saiba mais e antecipe agora",
+    "solutionsTitle2": "Soluções para melhor atender seus clientes.",
+    "solutionsSubtitle": "Garanta agilidade e o melhor da tecnologia para atender bem seus clientes.",
+    "machineTitle": "Maquininha Getnet (POS)",
+    "machineText": "Aceite as principais bandeiras e aumente o movimento de sua loja.",
+    "button": "Saiba mais",
+    "tefTitle": "Soluções TEF",
+    "tefText": "Para você trazer maior agilidade no atendimento de seus clientes.",
+    "ecommerceTitle": "E-commerce",
+    "ecommerceText": "Soluções seguras para seus negócios online.",
+    "machinepfTitle": "Maquininha para pessoa física",
+    "machinepfText": "Ideal para autônomos e profissionais liberais.",
+    "certificates": "Certificações",
+    "helpTitle": "Precisa de ajuda?",
+    "helpSubtitle": "Aqui você encontra respostas para duas dúvidas.",
+    "faqTitle": "Perguntas frequentes",
+    "faqText": "Algumas dicas para \n facilitar o seu dia a dia.",
+    "tutorialsTitle": "Tutoriais",
+    "tutorialsText": "Confira dicas sobre \n as nossas soluções."
+};
+
+
+
       // Initialize the editor with a JSON schema
       var editor = new JSONEditor(document.getElementById('editor_holder'),{
         schema: {
           type: "object",
-          title: "Car",
+          title: "Nome da pagina que vai ser editada",
           properties: {
             make: {
               type: "string",
